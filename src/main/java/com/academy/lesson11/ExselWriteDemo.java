@@ -21,9 +21,23 @@ public class ExselWriteDemo {
         cell.setCellValue("Ашот");
 
         // Физически запись в файл
+
+
+
+        br1.lines()
+                .limit(10)
+                .peek(s->writeNameToExcell(s, sheet))
+                .forEach(System.out::println);
+
         workbook.write(fos);
 
+    }
 
+    public static void writeNameToExcell(String  name, XSSFSheet sheet) {
+        int lastRowNum = sheet.getLastRowNum();
+        XSSFRow row = sheet.createRow(lastRowNum + 1);
+        XSSFCell cell = row.createCell(0);
+        cell.setCellValue(name);
 
     }
 }
