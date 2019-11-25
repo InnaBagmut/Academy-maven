@@ -20,7 +20,7 @@ public class SortPersonsDemo {
         persons.add(new Person(43L, "Sun", Gender.FEMALE));
 
         //Sorting up by id - by default
-        Collections.sort(persons);
+       // Collections.sort(persons);
         System.out.println("Sorted Persons: " + persons);
 
         //Sorting down:
