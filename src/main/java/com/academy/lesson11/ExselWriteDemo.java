@@ -9,9 +9,9 @@ import java.io.*;
 
 public class ExselWriteDemo {
     public static void main(String[] args) throws IOException {
-        String pathFrom = "d:\\!!!Autotesting\\telesens\\lesson11\\мужские имена.txt";
+        String pathFrom = "d:\\!!!Autotesting\\!Telesens_Academy\\lesson11\\мужские имена.txt";
         BufferedReader br1 = new BufferedReader(new FileReader(pathFrom));
-        String pathOut = "d:\\!!!Autotesting\\telesens\\lesson11\\exsel-names.xlsx";
+        String pathOut = "d:\\!!!Autotesting\\!Telesens_Academy\\lesson11\\excel-names.xlsx";
         FileOutputStream fos = new FileOutputStream(new File(pathOut));
         XSSFWorkbook workbook = new XSSFWorkbook();
         // Налним данными
@@ -21,23 +21,21 @@ public class ExselWriteDemo {
         cell.setCellValue("Ашот");
 
         // Физически запись в файл
-
-
-
         br1.lines()
                 .limit(10)
-                .peek(s->writeNameToExcell(s, sheet))
+                .peek(s -> writeNameToExcell(s, sheet))
                 .forEach(System.out::println);
-
         workbook.write(fos);
 
+        br1.close();
+        fos.close();
+        workbook.close();
     }
 
-    public static void writeNameToExcell(String  name, XSSFSheet sheet) {
+    public static void writeNameToExcell(String name, XSSFSheet sheet) {
         int lastRowNum = sheet.getLastRowNum();
         XSSFRow row = sheet.createRow(lastRowNum + 1);
         XSSFCell cell = row.createCell(0);
         cell.setCellValue(name);
-
     }
 }

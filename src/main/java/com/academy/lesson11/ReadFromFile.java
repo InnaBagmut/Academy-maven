@@ -5,8 +5,8 @@ import java.io.*;
 public class ReadFromFile {
     public static void main(String[] args) throws IOException {
         System.out.println("Read 10 names from the file");
-        String inPath = "d:\\!!!Autotesting\\telesens\\lesson11\\женские имена.txt";
-        String inPathNewFile = "d:\\!!!Autotesting\\telesens\\lesson11\\женские имена new.txt";
+        String inPath = "d:\\!!!Autotesting\\!Telesens_Academy\\lesson11\\женские имена.txt";
+        String inPathNewFile = "d:\\!!!Autotesting\\!Telesens_Academy\\lesson11\\женские имена new.txt";
         BufferedReader br = new BufferedReader(new FileReader(inPath));
         PrintWriter pw = new PrintWriter(new PrintWriter(inPathNewFile));
         String name = br.readLine();
@@ -35,6 +35,5 @@ public class ReadFromFile {
                 .forEach(System.out::println);
         brNew1.close();
         pw.close();
-
     }
 }
