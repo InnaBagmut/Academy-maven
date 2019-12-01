@@ -8,10 +8,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 
 public class ExselWriteDemo {
+
     public static void main(String[] args) throws IOException {
-        String pathFrom = "d:\\!!!Autotesting\\!Telesens_Academy\\lesson11\\мужские имена.txt";
+        String pathFrom = "e:\\!!!Autotesting\\Telesens_Academy\\lesson11\\мужские имена.txt";
         BufferedReader br1 = new BufferedReader(new FileReader(pathFrom));
-        String pathOut = "d:\\!!!Autotesting\\!Telesens_Academy\\lesson11\\excel-names.xlsx";
+        String pathOut = "e:\\!!!Autotesting\\Telesens_Academy\\lesson11\\excel-names.xlsx";
         FileOutputStream fos = new FileOutputStream(new File(pathOut));
         XSSFWorkbook workbook = new XSSFWorkbook();
         // Налним данными
