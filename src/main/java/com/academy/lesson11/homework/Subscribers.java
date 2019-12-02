@@ -63,7 +63,7 @@ public class Subscribers {
     public static void task_a(int rows_count) throws IOException {
 
         try {
-            File file = new File("e:/!!!Autotesting/auto-projects/Academy-maven/src/main/java/com/academy/lesson11/homework/java-part.properties");
+            File file = new File("d:/!!!Autotesting/auto-projects/Academy-maven/src/main/java/com/academy/lesson11/homework/java-part.properties");
             Properties prop = new Properties();
             prop.load(new FileInputStream(file));
 
@@ -97,6 +97,7 @@ public class Subscribers {
             writeCell(headerRow, "Пол", 3);
             writeCell(headerRow, "Телефон", 4);
             writeCell(headerRow, "Оператор", 5);
+            writeCell(headerRow, "Возраст", 6);
             ArrayList<String> mobileOperators = new ArrayList<String>(List.of("Life", "Kievstar", "Vodafone"));
             Map<String, ArrayList<String>> operatorPrefixMap  = new HashMap<String, ArrayList<String>>();
             operatorPrefixMap.put("Life", new ArrayList<String>(List.of("38063", "38093", "38073")));
@@ -116,6 +117,8 @@ public class Subscribers {
                 String operatorPrefix = operatorPrefixMap.get(mobileOperator).get(random.nextInt(operatorPrefixMap.get(mobileOperator).size()));
                 String phoneNumber = makeRandomPhoneNumber(operatorPrefix);
                 writeCell(row, phoneNumber, 4);
+                //age:
+                writeCell(row, Integer.toString(i+1), 6);
                 // last name, first name
                 if (isMale) {
                     String male_lastname = male_lastnames.get(random.nextInt(male_lastnames.size()));
