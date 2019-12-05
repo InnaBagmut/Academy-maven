@@ -53,11 +53,18 @@ public class Subscribers {
         cell.setCellValue(new String(data));
     }
 
+    public static String makeRandomAge(int maxAge, int minAge) {
+        Random random = new Random();
+        //int randomNum1 = random.nextInt(100);
+        int randomNum = random.nextInt(maxAge - minAge + 1) + minAge;
+        return Integer.toString(randomNum);
+    }
+
     public static String makeRandomPhoneNumber(String prefix) {
         Random random = new Random();
         // int randomNum = random.nextInt(max - min + 1) + min
         int randomNum = random.nextInt(10000000 - 1000000 + 1) + 1000000;
-        return  prefix + Integer.toString(randomNum);
+        return prefix + Integer.toString(randomNum);
     }
 
     public static void task_a(int rows_count) throws IOException {
@@ -94,12 +101,12 @@ public class Subscribers {
             writeCell(headerRow, "#", 0);
             writeCell(headerRow, "Фамилия", 1);
             writeCell(headerRow, "Имя", 2);
-            writeCell(headerRow, "Пол", 3);
-            writeCell(headerRow, "Телефон", 4);
-            writeCell(headerRow, "Оператор", 5);
-            writeCell(headerRow, "Возраст", 6);
+            writeCell(headerRow, "Возраст", 3);
+            writeCell(headerRow, "Пол", 4);
+            writeCell(headerRow, "Телефон", 5);
+            writeCell(headerRow, "Оператор", 6);
             ArrayList<String> mobileOperators = new ArrayList<String>(List.of("Life", "Kievstar", "Vodafone"));
-            Map<String, ArrayList<String>> operatorPrefixMap  = new HashMap<String, ArrayList<String>>();
+            Map<String, ArrayList<String>> operatorPrefixMap = new HashMap<String, ArrayList<String>>();
             operatorPrefixMap.put("Life", new ArrayList<String>(List.of("38063", "38093", "38073")));
             operatorPrefixMap.put("Kievstar", new ArrayList<String>(List.of("38097", "38067", "38098")));
             operatorPrefixMap.put("Vodafone", new ArrayList<String>(List.of("38050", "38066", "38095")));
@@ -109,30 +116,31 @@ public class Subscribers {
                 XSSFRow row = sheet.createRow(i + 1);
                 boolean isMale = random.nextBoolean();
                 // user id
-                writeCell(row, Integer.toString(i+1), 0);
+                writeCell(row, Integer.toString(i + 1), 0);
                 // mobile operator
                 String mobileOperator = mobileOperators.get(random.nextInt(mobileOperators.size()));
-                writeCell(row, mobileOperator, 5);
+                writeCell(row, mobileOperator, 6);
                 // phone number
                 String operatorPrefix = operatorPrefixMap.get(mobileOperator).get(random.nextInt(operatorPrefixMap.get(mobileOperator).size()));
                 String phoneNumber = makeRandomPhoneNumber(operatorPrefix);
-                writeCell(row, phoneNumber, 4);
+                writeCell(row, phoneNumber, 5);
                 //age:
-                writeCell(row, Integer.toString(i+1), 6);
+                int a = Integer.parseInt(prop.getProperty("age.to"));
+                int b = Integer.parseInt(prop.getProperty("age.from"));
+                writeCell(row, makeRandomAge(a, b), 3);
                 // last name, first name
                 if (isMale) {
                     String male_lastname = male_lastnames.get(random.nextInt(male_lastnames.size()));
                     writeCell(row, male_lastname, 1);
                     String male_firstname = male_firstnames.get(random.nextInt(male_firstnames.size()));
                     writeCell(row, male_firstname, 2);
-                    writeCell(row, "м", 3);
-                }
-                else {
+                    writeCell(row, "м", 4);
+                } else {
                     String female_lastname = female_lastnames.get(random.nextInt(female_lastnames.size()));
                     writeCell(row, female_lastname, 1);
                     String female_firstname = female_firstnames.get(random.nextInt(female_firstnames.size()));
                     writeCell(row, female_firstname, 2);
-                    writeCell(row, "ж", 3);
+                    writeCell(row, "ж", 4);
                 }
             }
             workbook.write(fos);

@@ -23,7 +23,7 @@ public class JDBCdemo {
         //String.format("select from {0} where {1} = {}", Table1, col1, id1)
         //String.format("insert into {abonent(first_name, last_name, gender, age)}", "Mike", "Sunday", "m", 32);
 
-/*        statement.executeUpdate("insert into operator(id, name, address, fee) values" +
+        statement.executeUpdate("insert into operator(id, name, address, fee) values" +
                 "(4, 'BeeLine', 'Haharina avenue 1', 23), " +
                 "(5, 'DreamNet', 'Moskow avenue 217', 56), " +
                 "(6, 'KharkivSun', 'Nauki avenue 14', 24)");
@@ -42,9 +42,9 @@ public class JDBCdemo {
 
         statement.executeUpdate("insert into phone_book(number, abonent_id, registered_date) values" +
                 "('380475564823', 17, '2019-11-30 14:55:56'), " +
-                "('380495672004', 18, '2019-12-30 14:55:56')");*/
+                "('380495672004', 18, '2019-12-30 14:55:56')");
 
-       /* statement.executeUpdate("insert into phone_book(number, abonent_id, registered_date) values" +
+/*        statement.executeUpdate("insert into phone_book(number, abonent_id, registered_date) values" +
                 "((select number from operator_number where operator_id = 17), 2, '2019-11-30 14:55:56'), " +
                 "((select number from operator_number where operator_id = 18), 3, '2019-12-30 14:55:56')");*/
 
