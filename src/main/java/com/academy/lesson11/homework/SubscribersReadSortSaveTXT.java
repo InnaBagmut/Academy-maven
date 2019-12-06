@@ -7,6 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -88,15 +89,17 @@ public class SubscribersReadSortSaveTXT {
         //ArrayList<String> male_firstnames = read_column_file(prop.getProperty("subscriber.exc"));
         //System.out.println(male_firstnames.toString());
 
-/*        String pathMaleFirstnames = prop.getProperty("male.firstnames");
+       String pathMaleFirstnames = prop.getProperty("male.firstnames");
         BufferedReader brMaleFirstnames = new BufferedReader(new FileReader(pathMaleFirstnames));
         List<String> maleFirstnames = new ArrayList<>();
         String nextName;
         while ((nextName = brMaleFirstnames.readLine()) != null) {
             maleFirstnames.add(nextName);
         }
-        System.out.println(maleFirstnames);*/
+        System.out.println(maleFirstnames);
     }
+
+    //HashMap.put(id, firstName)
 
     public static ArrayList<String> read_column_file(String path) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(path));
