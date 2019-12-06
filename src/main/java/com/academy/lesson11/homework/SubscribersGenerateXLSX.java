@@ -30,16 +30,16 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Subscribers {
+public class SubscribersGenerateXLSX {
     public static void main(String[] args) throws IOException {
         System.out.println("Start write excel file");
         task_a(2000);
         System.out.println("Done");
     }
 
-    public static ArrayList<String> read_column_file(String path) throws IOException {
+    public static List<String> read_column_file(String path) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(path));
-        ArrayList<String> data = null;
+        List<String> data = null;
         try {
             data = new ArrayList<String>(br.lines().collect(Collectors.toList()));
         } finally {
@@ -75,16 +75,16 @@ public class Subscribers {
             prop.load(new FileInputStream(file));
 
             // 1. считать файл с м. именами - в список
-            ArrayList<String> male_firstnames = read_column_file(prop.getProperty("male.firstnames"));
+            List<String> male_firstnames = read_column_file(prop.getProperty("male.firstnames"));
 
             // 2. считать файл с м. фамилиями - в список
-            ArrayList<String> male_lastnames = read_column_file(prop.getProperty("male.lastnames"));
+            List<String> male_lastnames = read_column_file(prop.getProperty("male.lastnames"));
 
             // 3. считать файл с ж. именами - в список
-            ArrayList<String> female_firstnames = read_column_file(prop.getProperty("female.firstnames"));
+            List<String> female_firstnames = read_column_file(prop.getProperty("female.firstnames"));
 
             // 4. считать файл с ж. именами - в список
-            ArrayList<String> female_lastnames = read_column_file(prop.getProperty("female.lastnames"));
+            List<String> female_lastnames = read_column_file(prop.getProperty("female.lastnames"));
 
             // 5. открыть файл ексель для записи
             FileOutputStream fos = new FileOutputStream(new File(prop.getProperty("subscriber.exc")));
@@ -105,7 +105,7 @@ public class Subscribers {
             writeCell(headerRow, "Пол", 4);
             writeCell(headerRow, "Телефон", 5);
             writeCell(headerRow, "Оператор", 6);
-            ArrayList<String> mobileOperators = new ArrayList<String>(List.of("Life", "Kievstar", "Vodafone"));
+            List<String> mobileOperators = new ArrayList<String>(List.of("Life", "Kievstar", "Vodafone"));
             Map<String, ArrayList<String>> operatorPrefixMap = new HashMap<String, ArrayList<String>>();
             operatorPrefixMap.put("Life", new ArrayList<String>(List.of("38063", "38093", "38073")));
             operatorPrefixMap.put("Kievstar", new ArrayList<String>(List.of("38097", "38067", "38098")));
