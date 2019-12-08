@@ -12,7 +12,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Search {
+public class LoginNegative {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -31,13 +31,18 @@ public class Search {
     @Test
     public void testUntitledTestCase() throws Exception {
         driver.get("http://automationpractice.com/index.php");
-        driver.findElement(By.id("search_query_top")).click();
-        driver.findElement(By.id("search_query_top")).clear();
-        driver.findElement(By.id("search_query_top")).sendKeys("dress");
-        driver.findElement(By.id("search_query_top")).sendKeys(Keys.DOWN);
-        driver.findElement(By.id("search_query_top")).clear();
-        driver.findElement(By.id("search_query_top")).sendKeys("dress");
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='support@seleniumframework.com'])[1]/following::li[1]")).click();
+        driver.findElement(By.linkText("Sign in")).click();
+        driver.findElement(By.id("email")).click();
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("rtretyrer@mail.tu");
+        driver.findElement(By.id("passwd")).clear();
+        driver.findElement(By.id("passwd")).sendKeys("erewtrwt");
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Authentication'])[2]/following::li[1]")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Authentication'])[2]/following::p[1]")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Authentication'])[2]/following::div[1]")).click();
+        // ERROR: Caught exception [ERROR: Unsupported command [doubleClick | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Authentication'])[2]/following::div[1] | ]]
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Authentication'])[2]/following::div[1]")).click();
     }
 
     @AfterClass(alwaysRun = true)
@@ -82,3 +87,4 @@ public class Search {
         }
     }
 }
+

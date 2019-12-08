@@ -10,9 +10,9 @@ import java.io.*;
 public class ExselWriteDemo {
 
     public static void main(String[] args) throws IOException {
-        String pathFrom = "e:\\!!!Autotesting\\Telesens_Academy\\lesson11\\мужские имена.txt";
+        String pathFrom = "d:/autotesting/Telesens_Academy/lesson11/male_firstnames.txt";
         BufferedReader br1 = new BufferedReader(new FileReader(pathFrom));
-        String pathOut = "e:\\!!!Autotesting\\Telesens_Academy\\lesson11\\excel-names.xlsx";
+        String pathOut = "d:/autotesting/Telesens_Academy/lesson11/excel-names.xlsx";
         FileOutputStream fos = new FileOutputStream(new File(pathOut));
         XSSFWorkbook workbook = new XSSFWorkbook();
         // Налним данными

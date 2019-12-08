@@ -70,7 +70,7 @@ public class SubscribersGenerateXLSX {
     public static void task_a(int rows_count) throws IOException {
 
         try {
-            File file = new File("d:/!!!Autotesting/auto-projects/Academy-maven/src/main/java/com/academy/lesson11/homework/java-part.properties");
+            File file = new File("d:/autotesting/auto-projects/Academy-maven/src/main/resources/java-part.properties");
             Properties prop = new Properties();
             prop.load(new FileInputStream(file));
 
