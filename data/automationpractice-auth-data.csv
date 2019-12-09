@@ -1,5 +1,6 @@
-# user = erwhutoiwhj@mail.ru ,passw = 123456, expected_error_msg = Invalid email address.
-# user = inna_samus@mail.ru ,passw = 1234567, expected_error_msg = Authentication failed.
-# user = weqrqwwq@mail.ru ,passw = 123456, expected_error_msg = Authentication failed.
-# user = ,passw = 123456, expected_error_msg = An email address required.
-# user = weqrqwwq@mail.ru, passw = , expected_error_msg = Password is required.
+#user,passw,expected_erro
+erwhutoiwhj@mail.ru,123456,Invalid email address.
+inna_samus@mail.ru,1234567, expected_error_msg = Authentication failed.
+weqrqwwq@mail.ru,123456,expected_error_msg = Authentication failed.
+,passw = 123456, expected_error_msg = An email address required.
+weqrqwwq@mail.ru,expected_error_msg = Password is required.
