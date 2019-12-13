@@ -10,11 +10,13 @@
 
 package com.academy.automationpractice;
 
+import com.academy.core.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -24,25 +26,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class AuthenticationSuccessfull {
-    private WebDriver driver;
-    private String baseUrl;
+public class AuthenticationSuccessfull extends BaseTest {
 
-    @BeforeClass(alwaysRun = true)
-    public void setUp() throws IOException {
-        Properties properties = new Properties();
-        // вычитываем файл *.properties из директории <root>/src/main/java/resources
-        properties.load(this.getClass().getClassLoader().getResourceAsStream("automationpractice.properties"));
-        // Инициализируем драйвер Chrome
-        System.setProperty("webdriver.chrome.driver", properties.getProperty("chrome.driver"));
-        ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
-        baseUrl = properties.getProperty("baseUrl");
-        // Неявное ожидание (Implicit Waits)
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-//        driver.manage().window().setSize(new Dimension(300, 200));
-    }
 
     @Test
     public void authSuccessfull() throws InterruptedException {
@@ -66,11 +51,5 @@ public class AuthenticationSuccessfull {
         Assert.assertEquals(userNameText, "Инна Багмут");
 
         signOutButton.click();
-    }
-
-    @AfterClass(alwaysRun = true)
-    public void tearDown() {
-        // Закрываем браузер (все окна)
-        driver.quit();
     }
 }
