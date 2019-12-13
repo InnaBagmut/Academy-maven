@@ -1,6 +1,6 @@
-#user,passw,expected_erro
-erwhutoiwhj@mail.ru,123456,Invalid email address.
-inna_samus@mail.ru,1234567, expected_error_msg = Authentication failed.
-weqrqwwq@mail.ru,123456,expected_error_msg = Authentication failed.
-,passw = 123456, expected_error_msg = An email address required.
-weqrqwwq@mail.ru,expected_error_msg = Password is required.
+#user,passw,expected_error
+erwhutoiwhjmail.ru,123456,Invalid email address.
+inna_samus@mail.ru,1234567,Authentication failed.
+weqrqwwq@mail.ru,123456,Authentication failed.
+,123456,An email address required.
+weqrqwwq@mail.ru,Password is required.
