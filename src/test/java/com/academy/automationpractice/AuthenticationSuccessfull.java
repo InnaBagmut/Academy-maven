@@ -49,7 +49,6 @@ public class AuthenticationSuccessfull extends BaseTest {
         WebElement userNameButton = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a/span"));
         String userNameText = userNameButton.getText().trim();
         Assert.assertEquals(userNameText, "Инна Багмут");
-
         signOutButton.click();
     }
 }

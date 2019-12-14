@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="selenium">
-    <test name="login-1">
+<!--    <test name="login-1">
         <parameter name="browser" value="chrome" />
         <classes>
             <class name="com.academy.automationpractice.AuthenticationSuccessfull"/>
@@ -13,6 +13,11 @@
         <classes>
             <class name="com.academy.automationpractice.AuthenticationSuccessfull"/>
         </classes>
+    </test>-->
+    <test name="login-15">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="com.academy.automationpractice.homework15.Login"/>
+        </classes>
     </test>
-
 </suite>
