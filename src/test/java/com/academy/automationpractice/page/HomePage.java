@@ -1,17 +1,18 @@
 package com.academy.automationpractice.page;
 
+import com.academy.core.BasePage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
-    private WebDriver driver;
-    private String baseUrl;
+    @FindBy(linkText = "Sign in")
+    private WebElement sigmInButton;
 
     public HomePage(WebDriver driver, String baseUrl) {
-        this.driver = driver;
-        this.baseUrl = baseUrl;
-        PageFactory.initElements(driver, this);
+        super(driver, baseUrl);
     }
 
     public HomePage goToHome() {
@@ -19,9 +20,13 @@ public class HomePage {
         return this;
     }
 
-/*    public LoginPage loginPage() {
+    public LoginPage clickSignIn() {
+        sigmInButton.click();
+        return new LoginPage(driver);
+    }
 
-    }*/
-
-
+    //empty constructor - can be used in test for example like using the cucumber scenario
+    public HomePage then() {
+        return this;
+    }
 }

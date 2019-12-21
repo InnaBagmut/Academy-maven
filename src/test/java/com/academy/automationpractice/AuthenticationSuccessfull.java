@@ -10,6 +10,8 @@
 
 package com.academy.automationpractice;
 
+import com.academy.automationpractice.page.HomePage;
+import com.academy.automationpractice.page.LoginPage;
 import com.academy.core.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +24,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -32,13 +35,25 @@ public class AuthenticationSuccessfull extends BaseTest {
     @Test
     public void authSuccessfull() throws InterruptedException {
         // Попасть на главную страницу
-        driver.get(baseUrl);
+/*        driver.get(baseUrl);
         driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]")).click();
         driver.findElement(By.id("email")).sendKeys("innasamus@gmail.com");
         driver.findElement(By.id("passwd")).sendKeys("123456");
-        driver.findElement(By.id("SubmitLogin")).click();
+        driver.findElement(By.id("SubmitLogin")).click();*/
 
-        WebElement contactUsButton = driver.findElement(By.id("contact-link"));
+        LoginPage myTest1 = new HomePage(driver, baseUrl)
+                .goToHome()
+                .then()
+                .clickSignIn()
+                .fillEmail("innasamus@gmail.com")
+                .and()
+                .fillPassw("89707")
+                .clickSubmit();
+        String actualErrMsg = myTest1.getErrMsg();
+        Assert.assertEquals(actualErrMsg, "Authentication failed.");
+
+
+/*        WebElement contactUsButton = driver.findElement(By.id("contact-link"));
         String contactUsText = contactUsButton.getText().trim();
         Assert.assertEquals(contactUsText, "Contact us");
 
@@ -49,6 +64,6 @@ public class AuthenticationSuccessfull extends BaseTest {
         WebElement userNameButton = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a/span"));
         String userNameText = userNameButton.getText().trim();
         Assert.assertEquals(userNameText, "Инна Багмут");
-        signOutButton.click();
+        signOutButton.click();*/
     }
 }
