@@ -39,6 +39,7 @@ public class BaseTest {
 
         // Неявное ожидание (Implicit Waits)
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
     }
 
     @AfterClass(alwaysRun = true)
