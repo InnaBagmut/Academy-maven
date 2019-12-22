@@ -41,16 +41,17 @@ public class AuthenticationSuccessfull extends BaseTest {
         driver.findElement(By.id("passwd")).sendKeys("123456");
         driver.findElement(By.id("SubmitLogin")).click();*/
 
+        String email = "innaSamus@gmail.com";
         LoginPage myTest1 = new HomePage(driver, baseUrl)
                 .goToHome()
                 .then()
                 .clickSignIn()
-                .fillEmail("innasamus@gmail.com")
-                .and()
+                .fillEmail(email);
+/*                .and()
                 .fillPassw("89707")
                 .clickSubmit();
         String actualErrMsg = myTest1.getErrMsg();
-        Assert.assertEquals(actualErrMsg, "Authentication failed.");
+        Assert.assertEquals(actualErrMsg, "Authentication failed.");*/
 
 
 /*        WebElement contactUsButton = driver.findElement(By.id("contact-link"));

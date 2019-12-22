@@ -4,7 +4,6 @@ import com.academy.core.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
     private WebDriver driver;
@@ -32,13 +31,13 @@ public class LoginPage extends BasePage {
         //emailInput.click();
         //emailInput.clear();
         //emailInput.sendKeys(email);
-        fillImput(emailInput, email); //now it's just one basic method in BasePage class
+        fillInput(emailInput, email); //now it's just one basic method in BasePage class
         return this;
     }
 
     public LoginPage fillPassw(String passw) {
         //submitLogin.click();
-        fillImput(passwInput, passw);
+        fillInput(passwInput, passw);
         return this;
     }
 

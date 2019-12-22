@@ -19,7 +19,7 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    protected void fillImput(WebElement element, String value) {
+    protected void fillInput(WebElement element, String value) {
         element.click();
         element.clear();
         element.sendKeys();
