@@ -22,6 +22,6 @@ public class BasePage {
     protected void fillInput(WebElement element, String value) {
         element.click();
         element.clear();
-        element.sendKeys();
+        element.sendKeys(value);
     }
 }
