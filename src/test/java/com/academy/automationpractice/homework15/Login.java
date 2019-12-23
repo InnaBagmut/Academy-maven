@@ -4,6 +4,7 @@ import com.academy.core.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -37,5 +38,10 @@ public class Login extends BaseTest {
                 {"a@mail.ru", "", "Password is required."},
                 {"", "", "An email address required."}
         };
+    }
+
+    @Override
+    public void onException(Throwable err, WebDriver driver) {
+
     }
 }

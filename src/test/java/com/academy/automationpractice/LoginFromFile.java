@@ -2,6 +2,7 @@ package com.academy.automationpractice;
 
 import com.academy.core.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -56,4 +57,8 @@ public class LoginFromFile extends BaseTest {
         return result;
     }
 
+    @Override
+    public void onException(Throwable err, WebDriver driver) {
+
+    }
 }

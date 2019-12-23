@@ -68,4 +68,9 @@ public class AuthenticationSuccessfull extends BaseTest {
         Assert.assertEquals(userNameText, "Инна Багмут");
         signOutButton.click();*/
     }
+
+    @Override
+    public void onException(Throwable err, WebDriver driver) {
+
+    }
 }

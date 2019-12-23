@@ -3,17 +3,19 @@ package com.academy.automationpractice;
 import com.academy.automationpractice.page.HomePage;
 import com.academy.automationpractice.page.LoginPage;
 import com.academy.core.BaseTest;
+import com.google.common.io.Files;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+//import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -86,5 +88,24 @@ public class LoginFromFileViaPO extends BaseTest {
         LOG.debug("****Array****");
         LOG.debug(Arrays.deepToString(result));
         return result;
+    }
+    @Override
+    public void onException(Throwable err, WebDriver driver) {
+        LOG.error("Error occurs: {}", err.getMessage());
+
+        makeScreenshot(driver);
+    }
+
+    private void makeScreenshot(WebDriver driver) {
+        File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String screenName = "screen_" + System.currentTimeMillis()+".png";
+        String screenPath =  "D:/temp/screenshots/" + screenName;
+        File screen = new File(screenPath);
+        try {
+            Files.copy(tmp, screen);
+        } catch (IOException exc) {
+            LOG.error("Error copying screenshot from '{}' to '{}'. Details: {}",
+                    tmp, screen, exc);
+        }
     }
 }
