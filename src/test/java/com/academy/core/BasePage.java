@@ -24,4 +24,9 @@ public class BasePage {
         element.clear();
         element.sendKeys(value);
     }
+
+    protected BasePage getText(WebElement element) {
+        element.getText().trim();
+        return this;
+    }
 }

@@ -1,6 +1,5 @@
 package com.academy.core;
 
-import com.academy.automationpractice.LoginFromFileViaPO;
 import com.academy.core.listener.WebDriverEventListenerImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

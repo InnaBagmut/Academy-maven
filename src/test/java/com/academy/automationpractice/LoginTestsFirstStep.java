@@ -1,4 +1,4 @@
 package com.academy.automationpractice;
 
-public class LoginTests {
+public class LoginTestsFirstStep {
 }

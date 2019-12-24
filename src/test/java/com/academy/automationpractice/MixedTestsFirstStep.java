@@ -28,7 +28,7 @@ import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class MixedTests {
+public class MixedTestsFirstStep {
     private WebDriver driver;
     private String baseUrl;
 

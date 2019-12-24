@@ -62,7 +62,7 @@ import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class Filter {
+public class FilterFirstStep {
     private WebDriver driver;
     private String baseUrl;
 
