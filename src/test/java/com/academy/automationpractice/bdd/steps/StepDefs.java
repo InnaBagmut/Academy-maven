@@ -2,6 +2,7 @@ package com.academy.automationpractice.bdd.steps;
 
 import com.academy.automationpractice.page.HomePage;
 import com.academy.automationpractice.page.LoginPage;
+import com.academy.automationpractice.page.MyAccountPage;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -96,13 +97,13 @@ public class StepDefs {
     @When("Ввожу логин {string}")
     public void fillLogin2(String login) {
         new LoginPage(driver)
-                .fillEmail(login);
+                .fillEmail("innasamus@gmail.com");
     }
 
     @And("^Ввожу пароль '(.*?)'$")
     public void fillPassword2(String password) {
         new LoginPage(driver)
-                .fillPassword(password);
+                .fillPassw("123456");
     }
 
     @And("^нажимаю отправить$")
@@ -120,7 +121,7 @@ public class StepDefs {
 
     @Then("^Я ожидаю увидеть '(.*?)' link$")
     public void IShouldSeeUserNameLink(String userName) {
-
+        Assert.assertEquals(new MyAccountPage(driver).getUserName(), "Инн Багмут");
     }
 
     @Then("^Нажимаю logout$")
