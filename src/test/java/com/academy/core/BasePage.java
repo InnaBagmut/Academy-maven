@@ -29,4 +29,8 @@ public class BasePage {
         element.getText().trim();
         return this;
     }
+
+    protected void clickOnElement(WebElement element) {
+        element.click();
+    }
 }
