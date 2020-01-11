@@ -1,5 +1,6 @@
 package com.academy.automationpractice.page;
 
+import com.academy.automationpractice.dataProviders.User;
 import com.academy.core.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -44,6 +45,12 @@ public class LoginPage extends BasePage {
     public LoginPage clickSubmit() {
         submitLogin.click();
         return this;
+    }
+
+    public LoginPage autрorize(User user) {
+        fillEmail(user.getLogin());
+        fillPassw(user.getPassw());
+        return clickSubmit();
     }
 
     //empty constructor - can be used in test for example like using the cucumber scenario

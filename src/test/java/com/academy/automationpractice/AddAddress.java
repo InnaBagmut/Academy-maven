@@ -1,8 +1,10 @@
 package com.academy.automationpractice;
 
+import com.academy.automationpractice.dataProviders.User;
 import com.academy.automationpractice.page.HomePage;
 import com.academy.automationpractice.page.LoginPage;
 import com.academy.automationpractice.page.MyAddressPage;
+import com.academy.automationpractice.properties.Properties;
 import com.academy.core.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
@@ -17,6 +19,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class AddAddress extends BaseTest {
+
+    private final User user = new User(User.UserList.USER_1);
     @Override
     public void onException(Throwable err, WebDriver driver) {
     }
@@ -29,8 +33,8 @@ public class AddAddress extends BaseTest {
         LoginPage myObject1 = new HomePage(driver, baseUrl)
                 .goToHome()
                 .clickSignIn()
-                .fillEmail("innasamus@gmail.com")
-                .fillPassw("123456")
+                .fillEmail(Properties.props.user1Login())
+                .fillPassw(Properties.props.user1Passw())
                 .clickSubmit();
 
         MyAddressPage myObject2 = new MyAddressPage(driver)
