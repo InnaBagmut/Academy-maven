@@ -84,9 +84,9 @@ public class RestApiTests {
     @Test
     public void testNonElegantCreateSubscriber() {
         JSONObject json = new JSONObject();
-        json.put("firstName", "Ashot2"); // Cast
-        json.put("lastName", "Ivanov");
-        json.put("age", 68);
+        json.put("firstName", "Sarra"); // Cast
+        json.put("lastName", "Raferti");
+        json.put("age", 25);
         json.put("gender", "f");
 
         RequestSpecification spec = given();
