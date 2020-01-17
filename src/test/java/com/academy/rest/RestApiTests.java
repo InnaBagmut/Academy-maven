@@ -41,9 +41,9 @@ public class RestApiTests {
     @Test
     public void testCreateSubscriber() {
         JSONObject json = new JSONObject();
-        json.put("firstName", "Ashot2"); // Cast
-        json.put("lastName", "Ivanov");
-        json.put("age", 68);
+        json.put("firstName", "Bella"); // Cast
+        json.put("lastName", "Brill");
+        json.put("age", 38);
         json.put("gender", "f");
 
         given()
