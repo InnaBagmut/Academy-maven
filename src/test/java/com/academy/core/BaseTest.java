@@ -1,8 +1,10 @@
 package com.academy.core;
 
 import com.academy.core.listener.WebDriverEventListenerImpl;
+import io.qameta.allure.Attachment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -74,4 +76,9 @@ public abstract class BaseTest {
     }
 
     public abstract void onException(Throwable err, WebDriver driver);
+
+    @Attachment(value = "Page screenshot", type="image/png")
+    public byte[] saveScreenshotPNG() {
+        return driver.getScreenshotAs(OutputType.BYTES);
+    }
 }

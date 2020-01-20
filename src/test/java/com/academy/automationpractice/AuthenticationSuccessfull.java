@@ -10,9 +10,11 @@
 
 package com.academy.automationpractice;
 
+import com.academy.automationpractice.allure.TestListener;
 import com.academy.automationpractice.page.HomePage;
 import com.academy.automationpractice.page.LoginPage;
 import com.academy.core.BaseTest;
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +24,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 
@@ -29,9 +32,10 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+@Listeners(TestListener.class)
 public class AuthenticationSuccessfull extends BaseTest {
 
-
+    @Description("Perform test auth successfull")
     @Test
     public void authSuccessfull() throws InterruptedException {
         // Попасть на главную страницу

@@ -71,6 +71,7 @@ public class MobileTests {
 
         List<String> lastNames = subscribersPage.getLastNames();
         System.out.println(lastNames);
+        Assert.fail();
     }
 
     @AfterClass
