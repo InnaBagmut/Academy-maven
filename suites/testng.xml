@@ -20,4 +20,5 @@
             <class name="com.academy.automationpractice.homework15.Login"/>
         </classes>
     </test>
+    //com/academy/automationpractice/AuthenticationSuccessfull.java
 </suite>
