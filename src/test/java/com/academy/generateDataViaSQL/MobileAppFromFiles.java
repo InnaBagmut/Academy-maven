@@ -1,4 +1,4 @@
-package com.academy.lesson13;
+package com.academy.generateDataViaSQL;
 
 import com.academy.lesson06.Gender;
 import com.academy.lesson06.Person;
@@ -15,18 +15,16 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-//import static sun.text.normalizer.UCharacter.HangulSyllableType.COUNT;
-
-public class GenerateToDB {
+public class MobileAppFromFiles {
     private final static int COUNT = 100;
     private final static String SQL_INSERT =
-            "insert into abonent(first_name, last_name, gender, age) values (?, ?, ?, ?)";
+            "insert into subscriber(first_name, last_name, gender, age) values (?, ?, ?, ?)";
     // Path to properties:
     File file = new File("d:/autotesting/auto-projects/Academy-maven/src/main/java/com/academy/lesson11/homework/java-part.properties");
     Properties prop = new Properties();
 
     // configs
-    private static String dbUrl = "jdbc:mysql://localhost:3306/subscriber?user=root&password=root&serverTimezone=UTC";
+    private static String dbUrl = "jdbc:mysql://localhost:3306/mobile?user=root&password=root&serverTimezone=UTC";
     private static String pathMaleNames = "d:/autotesting/Telesens_Academy/lesson11/male_firstnames.txt";
     private static String pathFemaleNames = "d:/autotesting/Telesens_Academy/lesson11/male_lastnames.txt";
     private static String pathMaleLastNames = "d:/autotesting/Telesens_Academy/lesson11/female_firstnames.txt";
