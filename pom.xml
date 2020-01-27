@@ -12,8 +12,6 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <qatools.properties.version>2.0.RC6</qatools.properties.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.build.output>UTF-8</project.build.output>
     </properties>
 
     <dependencies>
@@ -137,7 +135,7 @@
                         <groupId>io.qameta.allure</groupId>
                         <artifactId>allure-selenide</artifactId>
                         <version>2.13.1</version>
-                    </dependency>
+                    </dependency>-->
 <!--                    <dependency>
                         <groupId>io.qameta.allure</groupId>
                         <artifactId>allure-selenide</artifactId>

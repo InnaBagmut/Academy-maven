@@ -6,6 +6,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class TestListener implements ITestListener {
+
     @Override
     public void onTestStart(ITestResult result) {
 
@@ -18,7 +19,8 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        BaseTest test = (BaseTest) result.getInstance();
+        System.out.println("onTestFailure");
+        BaseTest test = (BaseTest)result.getInstance();
         test.saveScreenshotPNG();
     }
 
@@ -29,11 +31,6 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-
-    }
-
-    @Override
-    public void onTestFailedWithTimeout(ITestResult result) {
 
     }
 
